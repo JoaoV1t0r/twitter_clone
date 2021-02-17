@@ -1,0 +1,127 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<div class="container-fluid menu">
+		<a class="navbar-brand" href="#"><img src="/img/twitter_logo.png" class="menuIco" /></a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+					<a class="menuItem nav-link" href="/timeline" style="color: #1DA1F2;">
+						Home
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="menuItem nav-link" href="/sair" style="color: #1DA1F2;">
+						Sair
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="menuItem nav-link" href="/quem_seguir" style="color: #1DA1F2;">
+						Procurar mais pessoas
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<div class="container mt-5">
+	<div class="row pt-2">
+
+		<div class="col-md-3">
+
+			<div class="perfil">
+				<div class="perfilTopo">
+
+				</div>
+
+				<div class="perfilPainel">
+
+					<div class="row mt-2 mb-2">
+						<div class="col mb-2">
+							<span class="perfilPainelNome">
+								<?= $this->view->info_usuario['nome'] ?>
+							</span>
+						</div>
+					</div>
+
+					<div class="row mb-2">
+
+						<div class="col">
+							<span class="perfilPainelItem">Tweets</span><br />
+							<span class="perfilPainelItemValor">
+								<?= $this->view->total_tweets_usuario['total_tweet'] ?>
+							</span>
+						</div>
+
+						<div class="col">
+							<span class="perfilPainelItem">Seguindo</span><br />
+							<span class="perfilPainelItemValor">
+								<?= $this->view->total_seguindo_usuario['total_seguindo'] ?>
+							</span>
+						</div>
+
+						<div class="col">
+							<span class="perfilPainelItem">Seguidores</span><br />
+							<span class="perfilPainelItemValor">
+								<?= $this->view->total_seguidores_usuario['total_seguidores'] ?>
+							</span>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+		<div class="col-md-6" style="margin-top: 10px;">
+
+			<div class="row mb-2">
+				<div class="col">
+					<div class="card">
+						<div class="card-body">
+							<form method="get" action="/quem_seguir">
+								<div class="input-group mb-3">
+									<input name="pesquisarPor" type="text" class="form-control" placeholder="Quem você está procurando?">
+									<div class="input-group-append">
+										<button class="btn btn-primary" type="submit">Procurar</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<?php foreach ($this->view->usuarios as $indice_arr => $usuario) { ?>
+				<div class="row mb-2">
+					<div class="col">
+						<div class="card">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-md-6 " style="color: #1DA1F2; font-size: 13px; font-weight: bold;">
+										<?= $usuario['nome'] ?>
+									</div>
+
+									<div class="col-md-6 d-flex justify-content-end">
+										<div>
+											<?php if ($usuario['seguindo_sn'] == 0) { ?>
+												<a href="/acao?acao=seguir&id_usuario=<?= $usuario['id'] ?>" class="btn btn-success">Seguir</a>
+											<?php } ?>
+											<?php if ($usuario['seguindo_sn'] == 1) { ?>
+												<a href="/acao?acao=deixarSeguir&id_usuario=<?= $usuario['id'] ?>" class="btn btn-danger">Deixar de seguir</a>
+											<?php } ?>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<?php } ?>
+
+		</div>
+	</div>
+</div>
