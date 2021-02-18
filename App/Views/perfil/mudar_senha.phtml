@@ -1,0 +1,94 @@
+<div class="container mt-5">
+    <div class="row pt-2">
+
+        <div class="col-md-3">
+
+            <div class="perfil">
+                <div class="perfilTopo">
+
+                </div>
+
+                <div class="perfilPainel">
+
+                    <div class="row mt-2 mb-2">
+                        <div class="col mb-2">
+                            <span class="perfilPainelNome">
+                                <?= $this->view->info_usuario['nome'] ?>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2">
+
+                        <div class="col">
+                            <span class="perfilPainelItem">Tweets</span><br />
+                            <span class="perfilPainelItemValor">
+                                <?= $this->view->total_tweets_usuario['total_tweet'] ?>
+                            </span>
+                        </div>
+
+                        <div class="col">
+                            <span class="perfilPainelItem">Seguindo</span><br />
+                            <span class="perfilPainelItemValor">
+                                <?= $this->view->total_seguindo_usuario['total_seguindo'] ?>
+                            </span>
+                        </div>
+
+                        <div class="col">
+                            <span class="perfilPainelItem">Seguidores</span><br />
+                            <span class="perfilPainelItemValor">
+                                <?= $this->view->total_seguidores_usuario['total_seguidores'] ?>
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-6" style="margin-top: 10px;">
+
+            <div class="row mb-2">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <form class="d-grid gap-2" action="/alterar_senha" method="post">
+                                <div class="form-group">
+                                    <h5>Digite sua Senha Atual: </h5>
+                                    <input type="password" name="senha_atual" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <h5>Digite sua nova Senha: </h5>
+                                    <input type="password" name="senha_nova" class="form-control">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Mudar Senha</button>
+                            </form>
+
+                            <?php if (isset($_GET['up']) && $_GET['up'] == 'true') { ?>
+                                <div class="row">
+                                    <div class="col">
+                                        <span class="text text-success">*Senha Alterada Com Sucesso</span>
+                                    </div>
+                                </div>
+                            <?php } ?>
+
+                            <?php if (isset($_GET['up']) && $_GET['up'] == 'false') { ?>
+                                <div class="row">
+                                    <div class="col">
+                                        <span class="text text-danger">*Erro ao mudar senha, preencha os campos novamente</span>
+                                    </div>
+                                </div>
+                            <?php } ?>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

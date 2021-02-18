@@ -21,6 +21,7 @@ class AuthControllers extends Action
 
             $_SESSION['id'] = $usuario->id;
             $_SESSION['nome'] = $usuario->nome;
+            $_SESSION['email'] = $usuario->email;
             print_r($_SESSION);
             header('Location: /timeline');
         } else {

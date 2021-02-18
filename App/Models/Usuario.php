@@ -95,6 +95,83 @@ class Usuario extends Model
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    //Mudar Nome do Usuário
+    public function mudarNomeUsuario()
+    {
+        $query = "
+            update 
+                usuarios
+            set
+                nome = :nome
+            where
+                id = :id
+            ";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':nome', $this->nome);
+        $stmt->bindValue(':id', $this->id);
+        $stmt->execute();
+
+        return true;
+    }
+
+    //Mudar E-mail do Usuário
+    public function mudarEmailUsuario()
+    {
+        $query = "
+            update 
+                usuarios
+            set
+                email = :email
+            where
+                id = :id
+            ";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':email', $this->email);
+        $stmt->bindValue(':id', $this->id);
+        $stmt->execute();
+
+        return true;
+    }
+
+    //Mudar E-mail do Usuário
+    public function mudarSenhaUsuario()
+    {
+        $query = "
+            update 
+                usuarios
+            set
+                senha = :senha
+            where
+                id = :id
+            ";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':senha', $this->senha);
+        $stmt->bindValue(':id', $this->id);
+        $stmt->execute();
+
+        return true;
+    }
+
+    public function getSenha()
+    {
+        $query = "select 
+                senha
+            from 
+                usuarios
+            where
+                id = :id
+            ";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':id', $this->id);
+        $stmt->execute();
+
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
+    }
+
     //Autenticar o login
     public function autenticar()
     {

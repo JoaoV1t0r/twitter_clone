@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,10 +19,47 @@
 
 
 </head>
+
 <body>
 
-    <?php 
-        $this->content(); 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid menu">
+            <a class="navbar-brand" href="#">
+                <img src="/img/twitter_logo.png" class="menuIco" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="menuItem nav-link" href="/timeline" style="color: #1DA1F2;">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="menuItem nav-link" href="/meu_perfil" style="color: #1DA1F2;">
+                            Meu Perfil
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="menuItem nav-link" href="/sair" style="color: #1DA1F2;">
+                            Sair
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="menuItem nav-link" href="/quem_seguir" style="color: #1DA1F2;">
+                            Procurar mais pessoas
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <?php
+    $this->content();
     ?>
 </body>
+
 </html>

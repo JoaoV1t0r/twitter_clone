@@ -1,0 +1,87 @@
+<div class="container mt-5">
+    <div class="row pt-2">
+
+        <div class="col-md-3">
+
+            <div class="perfil">
+                <div class="perfilTopo">
+
+                </div>
+
+                <div class="perfilPainel">
+
+                    <div class="row mt-2 mb-2">
+                        <div class="col mb-2">
+                            <span class="perfilPainelNome">
+                                <?= $this->view->info_usuario['nome'] ?>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2">
+
+                        <div class="col">
+                            <span class="perfilPainelItem">Tweets</span><br />
+                            <span class="perfilPainelItemValor">
+                                <?= $this->view->total_tweets_usuario['total_tweet'] ?>
+                            </span>
+                        </div>
+
+                        <div class="col">
+                            <span class="perfilPainelItem">Seguindo</span><br />
+                            <span class="perfilPainelItemValor">
+                                <?= $this->view->total_seguindo_usuario['total_seguindo'] ?>
+                            </span>
+                        </div>
+
+                        <div class="col">
+                            <span class="perfilPainelItem">Seguidores</span><br />
+                            <span class="perfilPainelItemValor">
+                                <?= $this->view->total_seguidores_usuario['total_seguidores'] ?>
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-6" style="margin-top: 10px;">
+
+            <div class="row mb-2">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <form class="d-grid gap-2" action="/mudar_nome" method="post">
+                                <div class="form-group">
+                                    <h5>Seu Nome: </h5>
+                                    <input type="text" value="<?= $_SESSION['nome'] ?>" name="nome" class="form-control">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Mudar Nome</button>
+                            </form>
+
+                            <form class="d-grid gap-2" action="/mudar_email" method="post">
+                                <div class="form-group">
+                                    <h5>Seu E-mail: </h5>
+                                    <input type="text" value="<?= $_SESSION['email'] ?>" name="email" class="form-control">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Mudar E-mail</button>
+                            </form>
+
+                            <form class="d-grid gap-2 mt-3" action="/mudar_senha" method="post">
+                                <h5>Deseja Mudar Sua Senha? </h5>
+                                <button type="submit" class="btn btn-primary">Mudar Senha</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

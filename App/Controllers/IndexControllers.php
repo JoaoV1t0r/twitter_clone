@@ -12,7 +12,7 @@ class IndexControllers extends Action
 	{
 		$this->view->login = isset($_GET['login']) ? $_GET['login'] : '';
 
-		$this->render('index');
+		$this->render('index', 'layout_off');
 	}
 
 	public function inscreverse()
@@ -24,7 +24,7 @@ class IndexControllers extends Action
 		);
 		$this->view->erroCadastro = false;
 
-		$this->render('inscreverse');
+		$this->render('inscreverse', 'layout_off');
 	}
 
 	public function registrar()
@@ -47,7 +47,7 @@ class IndexControllers extends Action
 				'senha' => $_POST['senha']
 			);
 			$this->view->erroCadastro = true;
-			$this->render('inscreverse');
+			$this->render('inscreverse', 'layout_off');
 		}
 	}
 }
